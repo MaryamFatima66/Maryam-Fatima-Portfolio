@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Maryam Fatima | Front-End Developer</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #fff;
+      background: #000;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    header {
+      background: rgba(0, 30, 60, 0.9);
+      backdrop-filter: blur(10px);
+      color: white;
+      padding: 3rem 0;
+      text-align: center;
+      border-bottom: 1px solid #001f3f;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+      font-weight: 300;
+      letter-spacing: 2px;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      font-weight: 300;
+      margin-bottom: 2rem;
+    }
+
+    .nav-menu {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .nav-menu a {
+      color: white;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      background: rgba(0, 31, 63, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease;
+      font-weight: 300;
+    }
+
+    .nav-menu a:hover {
+      background: #001f3f;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 31, 63, 0.5);
+    }
+
+    main {
+      padding: 2rem 0;
+    }
+
+    .grid {
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+      margin-bottom: 2rem;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 2.5rem;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      width: 100%;
+      margin-bottom: 2rem;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0, 30, 60, 0.3);
+    }
+
+    .card h2 {
+      color: #fff;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .card h2::before {
+      content: '';
+      width: 4px;
+      height: 25px;
+      background: #001f3f;
+      border-radius: 2px;
+    }
+
+    .card p {
+      margin-bottom: 1rem;
+      color: #ccc;
+    }
+
+    .card ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .card li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #333;
+      position: relative;
+      padding-left: 1.5rem;
+      color: #ccc;
+    }
+
+    .card li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: #001f3f;
+      font-weight: bold;
+    }
+
+    .card li:last-child {
+      border-bottom: none;
+    }
+
+    .project {
+      margin-bottom: 1.5rem;
+      padding: 1rem;
+      background: rgba(0, 31, 63, 0.2);
+      border-radius: 8px;
+      border-left: 4px solid #001f3f;
+    }
+
+    .project-title {
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+    }
+
+    .project p:last-child {
+      margin-bottom: 0;
+      color: #ccc;
+      font-size: 0.95rem;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem;
+      background: rgba(0, 31, 63, 0.2);
+      border-radius: 5px;
+      color: #ccc;
+    }
+
+    .contact-item::before {
+      content: '📧';
+      font-size: 1.2rem;
+    }
+
+    .contact-item:nth-child(2)::before {
+      content: '💼';
+    }
+
+    .contact-item:nth-child(3)::before {
+      content: '🐙';
+    }
+
+    .contact-item a {
+      color: #ccc;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .contact-item a:hover {
+      color: #fff;
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 0;
+      background: rgba(0, 0, 0, 0.9);
+      color: #ccc;
+      margin-top: 2rem;
+      border-top: 1px solid #333;
+    }
+
+    .full-width {
+      width: 100%;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .skill-item {
+      background: #001f3f;
+      color: white;
+      padding: 0.8rem;
+      border-radius: 8px;
+      text-align: center;
+      font-weight: 500;
+      transition: transform 0.2s ease;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .skill-item:hover {
+      transform: scale(1.05);
+      background: #002851;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      
+      .card {
+        padding: 1.5rem;
+      }
+
+      .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1>Maryam Fatima</h1>
+      <p>Front-End Developer | Web & Mobile Enthusiast</p>
+      <nav class="nav-menu">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#internships">Virtual Programs</a>
+        <a href="#projects">Projects</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="grid">
+        <div class="card" id="about">
+          <h2>About Me</h2>
+          <p>
+           I’m a passionate Front-End Developer with hands-on experience crafting responsive, accessible, and high-performance web and mobile interfaces using HTML, CSS, JavaScript, and Flutter. Currently interning at DeveloperHub Corporation, I contribute to UI optimization and cross-functional Agile projects, consistently focusing on clean code and seamless user experiences.<br> Beyond my internship, I’ve completed 11+ virtual programs with global tech leaders including Walmart, Goldman Sachs, and Accenture; gaining exposure to real-world challenges and industry-standard practices. I’ve developed full-stack and AI-powered applications with a strong emphasis on usability, accessibility, and real-world impact.<br> Whether integrating APIs, debugging complex interfaces, or collaborating with diverse teams, I bring a user-centered mindset and a commitment to building polished, meaningful digital experiences.
+          </p>
+        </div>
+
+        <div class="card" id="skills">
+          <h2>Technical Skills</h2>
+          <div class="skills-grid">
+            <div class="skill-item">HTML</div>
+            <div class="skill-item">CSS</div>
+            <div class="skill-item">JavaScript</div>
+            <div class="skill-item">Python</div>
+            <div class="skill-item">Dart</div>
+            <div class="skill-item">Flutter</div>
+            <div class="skill-item">SQLite</div>
+            <div class="skill-item">Git & GitHub</div>
+            <div class="skill-item">WordPress</div>
+            <div class="skill-item">Figma</div>
+            <div class="skill-item">BootStrap</div>
+            <div class="skill-item">TDD</div>
+            <div class="skill-item">Agile/SDLC</div>
+          </div>
+        </div>
+
+        <div class="card" id="experience">
+          <h2>Experience</h2>
+          <ul>
+            <li><strong>Front-End Developer Intern</strong> – DeveloperHub Corporation (Present)</li>
+            <li><strong>Front-End Intern</strong> – Hamdard University, Systems Department</li>
+          </ul>
+        </div>
+
+        <div class="card full-width" id="internships">
+          <h2>Virtual Experience Programs</h2>
+          
+          <div class="project">
+            <p class="project-title">🏢 Advanced Software Engineering – Walmart Global Tech</p>
+            <p><strong>Skills:</strong> Advanced Data Structures, Software Architecture, Relational Database Design, Data Munging</p>
+            <p>Optimized database schemas for 30% faster query performance and designed scalable software architectures aligned with Walmart's enterprise standards.</p>
+          </div>
+
+          <div class="project">
+            <p class="project-title">⚙️ Back-End Engineering Virtual Program – Lyft</p>
+            <p><strong>Skills:</strong> Software Architecture, Refactoring, Unit Testing, Test-Driven Development (TDD)</p>
+            <p>Refactored legacy codebases reducing runtime errors by 40% and implemented TDD practices achieving 95% code coverage.</p>
+          </div>
+
+          <div class="project">
+            <p class="project-title">🎨 Digital Design & UX Job Simulation – BP</p>
+            <p><strong>Skills:</strong> User Research, Wireframing, High-Fidelity Prototyping</p>
+            <p>Conducted user persona research leading to 35% higher engagement and delivered client-ready wireframes cutting design revision cycles by 50%.</p>
+          </div>
+
+          <div class="project">
+            <p class="project-title">💻 Developer & Technology Virtual Program – Accenture</p>
+            <p><strong>Skills:</strong> Agile/Waterfall SDLC, Debugging, Algorithmic Thinking, STLC</p>
+            <p>Resolved 50+ critical bugs and applied Agile methodologies to accelerate project delivery by 20%.</p>
+          </div>
+
+          <div class="project">
+            <p class="project-title">📊 Excel Skills for Business – Goldman Sachs</p>
+            <p><strong>Skills:</strong> Financial Forecasting, P&L Modeling, Cash Flow Analysis</p>
+            <p>Automated operating assumptions reducing manual errors by 60% and built dynamic dashboards for real-time financial decision-making.</p>
+          </div>
+
+          <div class="project">
+            <p class="project-title">✈️ Front-End Engineering Job Simulation – Skyscanner</p>
+            <p><strong>Skills:</strong> React.js, Responsive Web App Development</p>
+            <p>Developed a React-based travel app prototype with 98% Lighthouse accessibility score.</p>
+          </div>
+
+          <div class="project">
+            <p class="project-title">🔧 Software Development Virtual Program – Datacom</p>
+            <p><strong>Skills:</strong> Code Review, Root Cause Analysis, Bug Fixing</p>
+            <p>Identified and resolved critical bugs improving application stability by 35% and conducted peer code reviews reducing post-deployment issues by 50%.</p>
+          </div>
+
+          <div class="project">
+            <p class="project-title">🏦 Software Engineering Virtual Program – Wells Fargo</p>
+            <p><strong>Skills:</strong> Data Modeling, Database Implementation</p>
+            <p>Designed a relational data model optimizing query speeds by 25% for financial systems.</p>
+          </div>
+
+          <div class="project">
+            <p class="project-title">🔐 Technology Virtual Experience Program – Deloitte</p>
+            <p><strong>Skills:</strong> Coding, Data Analysis, Cybersecurity, Forensic Technology</p>
+            <p>Implemented cybersecurity protocols in simulated enterprise environment and analyzed datasets identifying 15% reduction in operational costs.</p>
+          </div>
+
+          <div class="project">
+            <p class="project-title">🎯 Product Design Job Simulation</p>
+            <p><strong>Skills:</strong> User-Centered Design, Design Rationale</p>
+            <p>Created prototypes with clear design rationale, reducing client feedback loops by 40%.</p>
+          </div>
+
+          <div class="project">
+            <p class="project-title">🚀 Pakistan Engineering Organization (PEO) Certifications</p>
+            <p><strong>Programs:</strong> Future-Proof Tech Skills, Founder's Mindset, Interpersonal Skills, Exam Survival, Cognitive Psychology</p>
+            <p>Researched AI/Blockchain trends, pitched tech startup idea (top 10 in virtual hackathon), and mastered cognitive bias analysis for enhanced problem-solving.</p>
+          </div>
+        </div>
+
+        <div class="card full-width" id="projects">
+          <h2>Projects</h2>
+          
+          <div class="project">
+            <p class="project-title">🌍 World News Hub - Real-Time Global News Platform</p>
+            <p><strong>Tech Stack:</strong> Flask (Python), HTML, CSS, JavaScript, NewsAPI.org, Session Storage</p>
+            <p>A responsive Flask web app delivering real-time global news with live worldwide headlines, smart search & filtering, "Read Later" bookmarks (no login required), PDF export functionality, and smooth animations with keyboard shortcuts. Features clean, modern mobile-friendly UI designed for developers, tech bloggers, and news enthusiasts.</p>
+          </div>
+
+          <div class="project">
+            <p class="project-title">👁️ Vision Assistant - AI Tool for Visually Impaired & Low-Vision Users</p>
+            <p><strong>Tech Stack:</strong> Python, Flask, OpenCV, PyTesseract, BLIP, DETR, HTML/CSS, Text-to-Speech (TTS)</p>
+            <p>Powerful AI-powered web application empowering visually impaired individuals with real-time scene description, OCR text reading (printed & handwritten), object detection for everyday items, currency recognition with voice feedback, full voice interaction, and WCAG accessibility standards compliance. Achieved 90%+ OCR accuracy with high contrast design and keyboard navigation.</p>
+          </div>
+
+          <div class="project">
+            <p class="project-title">🎬 Movie Finder Web App</p>
+            <p><strong>Tech Stack:</strong> Flask, OMDb API, HTML/CSS, Jinja2 Templating</p>
+            <p>Functional web application for searching movies and displaying detailed information including title, genre, director, plot, and poster. Built as academic project at Hamdard University to strengthen understanding of web development, RESTful APIs, and front-end/back-end integration.</p>
+          </div>
+
+          <div class="project">
+            <p class="project-title">🧮 Interactive Web Calculator</p>
+            <p><strong>Tech Stack:</strong> HTML, CSS, JavaScript</p>
+            <p>Responsive web calculator with clean UI featuring digit input (0-9), arithmetic operators (+, -, *, /), clear functionality, and real-time calculation display. Implements modular JavaScript architecture with external CSS styling and interactive button functionality for seamless user experience.</p>
+          </div>
+
+          <div class="project">
+            <p class="project-title">📱 Flutter Mobile Applications</p>
+            <p><strong>Tech Stack:</strong> Flutter, Dart, Firebase Authentication, REST APIs</p>
+            <p>Multiple cross-platform mobile applications developed during internships and training programs, focusing on modern UI/UX design principles, API integration, user authentication, and responsive mobile-first development approaches.</p>
+          </div>
+        </div>
+
+        <div class="card" id="certifications">
+          <h2>Certifications & Programs</h2>
+          <ul>
+            <li><strong>Web Development Certificate</strong> – JDC Foundation (2024)</li>
+            <li><strong>Virtual Experience Programs:</strong> Walmart, Lyft, BP, Accenture, Goldman Sachs, Skyscanner, Datacom, Wells Fargo, Deloitte (2023-2024)</li>
+            <li><strong>PEO Certifications:</strong> Future-Proof Tech Skills, Founder's Mindset, Interpersonal Skills Enhancement</li>
+          </ul>
+        </div>
+
+        <div class="card" id="contact">
+          <h2>Contact</h2>
+          <div class="contact-info">
+            <div class="contact-item"><a href="mailto:maryamfatima67766@gmail.com">maryamfatima67766@gmail.com</a></div>
+            <div class="contact-item"><a href="https://www.linkedin.com/in/maryam-fatima-20b3bb276?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">linkedin.com/in/maryam-fatima-20b3bb276</a></div>
+            <div class="contact-item"><a href="https://github.com/MaryamFatima66" target="_blank">github.com/MaryamFatima66</a></div>
+            <div class="contact-item"><a href="Maryam_Fatima_CV.pdf">Download CV</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      &copy; 2025 Maryam Fatima. All rights reserved.
+    </div>
+  </footer>
+
+</body>
+</html>
